@@ -6,7 +6,9 @@
     <title>Aki Amai - Combos</title>
     <!--ESTILOS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/scss/style.css">
+
+    <script src="https://kit.fontawesome.com/97b7247664.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +20,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html"><img src="../assets/img/AKIAMAIlogo.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,9 +50,48 @@
       </div>
     </nav>
 
-    <main>
-        <h1>Combos</h1>
-    </main>
+    <section class="combos">
+      <div class="portada">
+        <img src="../assets/img/box.png" alt="Portada de Combos">
+      </div>
+      <div class="container">
+        <h2>Combos</h2>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="combo">
+              <img src="../assets/img/box1.png" alt="Combo 1">
+              <h3>Box 1 - $4.000</h3>
+              <p>Box Pikachu</p>
+              <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="combo">
+              <img src="../assets/img/box2.png" alt="Combo 2">
+              <h3>Box 2 - $4.000</h3>
+              <p>Box San Valentin</p>
+              <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="combo">
+              <img src="../assets/img/box3.png" alt="Combo 3">
+              <h3>Box 3 - $4.000</h3>
+              <p>Box Navidad</p>
+              <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="combo">
+              <img src="../assets/img/box4.png" alt="Combo 4">
+              <h3>Box 4 - $4.000</h3>
+              <p>Box Ositos</p>
+              <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   
             
     
@@ -75,10 +116,10 @@
             <div class="col-xs-12 col-lg-3">
               <p class="h5 mb-2">Links</p>
               <div class="mb-2"> 
-                <a class="text-black text-decoration-none" href="../pages/productos.html">Términos y condiciones</a>
+                <a class="text-black text-decoration-none" href="../pages/tyc.html">Términos y condiciones</a>
               </div>
               <div class="mb-2">
-                <a class="text-black text-decoration-none" href="../pages/combos.html">Privacy policy</a>
+                <a class="text-black text-decoration-none" href="../pages/pyp.html">Privacy policy</a>
               </div>
               <div class="mb-4"> 
                 <a class="text-black text-decoration-none" href="../pages/nosotros.html">Quienes somos</a>
@@ -95,7 +136,18 @@
             <div class="col-xs-12 col-12 col-lg-12 text-center">
               <p class="text-black">Copyright - All rights reserved © 2023 </p>
             </div>
-            
+            <div class="redes">
+              <a href="https://www.instagram.com/aki.amai/" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=100077685189928" target="_blank">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com/aki.amai/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+                        
+          </div>
           </div>
         </div>
       </footer>

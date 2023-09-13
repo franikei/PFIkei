@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     // Nombre y apellido del cliente
-    let nombre = obtenerTextoValido("Por favor, ingrese el nombre:");
+    let nombre = obtenerTextoValido("Por favor, ingrese el nombree:");
     let apellido = obtenerTextoValido("Por favor, ingrese el apellido:");
   
     // mensaje de bienvenida

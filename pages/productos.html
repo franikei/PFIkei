@@ -8,9 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../assets/scss/style.css">
+    
 
     <script src="https://kit.fontawesome.com/97b7247664.js" crossorigin="anonymous"></script>
-    <script src="../js/main.js"></script>
+    <script src="main.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +42,7 @@
                     <li><a class="dropdown-item" href="../pages/combos.html">Combos</a></li>
                     <li><hr class="dropdown-divider"></li>
 
-                    
-          
+             
                   </ul>
                 </li>
               </ul>
@@ -51,7 +51,7 @@
         </nav>
       
     
-        <script src="main.js"></script>
+        
         <section class="productos">
           <div class="portada">
             <img src="../assets/img/nuestrosproductos.png" alt="Portada de Productos">
@@ -61,7 +61,7 @@
               <div class="col-md-4">
                 <div class="producto">
                   <img src="../assets/img/roll.png" alt="Producto 1">
-                  <h3>$2.000</h3>
+                  <h3>$2000</h3>
                   <p>Cheese roll.</p>
                   <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -69,7 +69,7 @@
               <div class="col-md-4">
                 <div class="producto">
                   <img src="../assets/img/cupcakerelleno.png" alt="Producto 2">
-                  <h3>$2.200</h3>
+                  <h3>$2200</h3>
                   <p>Kaori Cupcake. 3 Unidades</p>
                   <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -78,7 +78,7 @@
               <div class="col-md-4">
                 <div class="producto">
                   <img src="../assets/img/castellaprod.png" alt="Producto 8">
-                  <h3>$3.000</h3>
+                  <h3>$3000</h3>
                   <p>Kasutera.</p>
                   <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -86,7 +86,7 @@
               <div class="col-md-4">
                 <div class="producto">
                   <img src="../assets/img/kuri.png" alt="Producto 8">
-                  <h3>$1.800</h3>
+                  <h3>$1800</h3>
                   <p>Kurimanju. 6 Unidades</p>
                   <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -94,7 +94,7 @@
               <div class="col-md-4">
                 <div class="producto">
                   <img src="../assets/img/doraprod.png" alt="Producto 8">
-                  <h3>$2.600</h3>
+                  <h3>$2600</h3>
                   <p>Dorayaki. 6 Unidades</p>
                   <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -102,7 +102,7 @@
               <div class="col-md-4">
                 <div class="producto">
                   <img src="../assets/img/manju.png" alt="Producto 8">
-                  <h3>$1.800</h3>
+                  <h3>$1800</h3>
                   <p>Manju. 6 Unidades</p>
                   <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -110,6 +110,15 @@
             </div>
           </div>
         </section>
+
+        
+        <div class="text-center">
+          <h2>Carrito de Compras</h2>
+          <ul id="carrito-lista"></ul>
+          <p id="total-carrito">Total: $0.00</p>
+          <button class="btn btn-danger" id="vaciar-carrito">Vaciar carrito</button>
+        </div>
+        
 
     <footer>
         <div class="container-fluid">

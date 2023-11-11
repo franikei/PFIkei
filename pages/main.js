@@ -1,36 +1,40 @@
-document.addEventListener("DOMContentLoaded", function() {
+// Define la función cargarProductosDesdeJSON
+function cargarProductosDesdeJSON() {
+  // Lógica para cargar productos desde JSON
+  // Retorna una promesa si estás usando fetch, por ejemplo
+  return fetch('ruta-a-tu-archivo.json')
+    .then(response => response.json());
+}
+
+$(document).ready(function () {
   function cargarCarritoDesdeLocalStorage() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     return carrito;
   }
 
   function agregarProductosAlCarritoDOM(productos) {
-    const carritoLista = document.getElementById("carrito-lista");
-    const totalCarrito = document.getElementById("total-carrito");
-    carritoLista.innerHTML = '';
+    const carritoLista = $("#carrito-lista");
+    const totalCarrito = $("#total-carrito");
+    carritoLista.empty();
     let total = 0;
 
     productos.forEach(producto => {
-      const nuevoItem = document.createElement("li");
-      const precioFormateado = parseFloat(producto.precio).toFixed(2);
-      nuevoItem.textContent = `${producto.nombre} - $${precioFormateado}`;
-      
-      // Boton para eliminar un producto
-      const botonEliminar = document.createElement("button");
-      botonEliminar.textContent = "Eliminar";
-      botonEliminar.style.backgroundColor = "#ff3333";
-      botonEliminar.style.color = "#fff";
-      botonEliminar.style.margin = "5px";
-      botonEliminar.addEventListener("click", () => eliminarProductoDelCarrito(producto));
-      nuevoItem.appendChild(botonEliminar);
+      const nuevoItem = $("<li></li>").text(`${producto.nombre} - $${parseFloat(producto.precio).toFixed(2)}`);
 
-      carritoLista.appendChild(nuevoItem);
+      // Boton para eliminar un producto
+      const botonEliminar = $("<button></button>")
+        .text("Eliminar")
+        .css({ backgroundColor: "#ff3333", color: "#fff", margin: "5px" })
+        .click(() => eliminarProductoDelCarrito(producto));
+      
+      nuevoItem.append(botonEliminar);
+      carritoLista.append(nuevoItem);
 
       total += parseFloat(producto.precio);
     });
 
     const totalFormateado = total.toFixed(2);
-    totalCarrito.textContent = `Total: $${totalFormateado}`;
+    totalCarrito.text(`Total: $${totalFormateado}`);
   }
 
   function agregarProductoAlCarritoDOM(producto) {
@@ -44,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function eliminarProductoDelCarrito(producto) {
     const carrito = cargarCarritoDesdeLocalStorage();
-    // Para encontrar el indice del producto
+    // Para encontrar el índice del producto
     const index = carrito.findIndex(item => item.nombre === producto.nombre);
 
     if (index !== -1) {
@@ -56,31 +60,31 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function inicializarCarrito() {
-    const carrito = cargarCarritoDesdeLocalStorage();
-    agregarProductosAlCarritoDOM(carrito);
+    cargarProductosDesdeJSON()
+      .then(productos => {
+        const carrito = cargarCarritoDesdeLocalStorage();
+        agregarProductosAlCarritoDOM(carrito);
+      })
+      .catch(error => console.error('Error al cargar los productos:', error));
   }
 
   function vaciarCarrito() {
     localStorage.removeItem("carrito");
-    const carritoLista = document.getElementById("carrito-lista");
-    carritoLista.innerHTML = '';
-    const totalCarrito = document.getElementById("total-carrito");
-    totalCarrito.textContent = 'Total: $0.00';
+    $("#carrito-lista").empty();
+    $("#total-carrito").text('Total: $0.00');
   }
 
-  const vaciarCarritoButton = document.getElementById("vaciar-carrito");
-  vaciarCarritoButton.addEventListener("click", vaciarCarrito);
+  const vaciarCarritoButton = $("#vaciar-carrito");
+  vaciarCarritoButton.click(vaciarCarrito);
 
-  const botonesAgregarCarrito = document.querySelectorAll(".agregar-carrito");
+  const botonesAgregarCarrito = $(".agregar-carrito");
 
-  botonesAgregarCarrito.forEach(boton => {
-    boton.addEventListener("click", () => {
-      const producto = {
-        nombre: boton.parentElement.querySelector("p").textContent,
-        precio: parseFloat(boton.parentElement.querySelector("h3").textContent.slice(1)),
-      };
-      agregarProductoAlCarritoDOM(producto);
-    });
+  botonesAgregarCarrito.click(function () {
+    const producto = {
+      nombre: $(this).parent().find("p").text(),
+      precio: parseFloat($(this).parent().find("h3").text().slice(1)),
+    };
+    agregarProductoAlCarritoDOM(producto);
   });
 
   inicializarCarrito();

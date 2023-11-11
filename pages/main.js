@@ -1,8 +1,7 @@
 // Define la función cargarProductosDesdeJSON
 function cargarProductosDesdeJSON() {
-  // Lógica para cargar productos desde JSON
-  // Retorna una promesa si estás usando fetch, por ejemplo
-  return fetch('ruta-a-tu-archivo.json')
+  // Carga de productos JSON
+  return fetch('productos.json')
     .then(response => response.json());
 }
 

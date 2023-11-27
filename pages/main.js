@@ -1,6 +1,6 @@
-// Define la función cargarProductosDesdeJSON
+
 function cargarProductosDesdeJSON() {
-  // Carga de productos JSON
+  
   return fetch('productos.json')
     .then(response => response.json());
 }
@@ -85,6 +85,24 @@ $(document).ready(function () {
     };
     agregarProductoAlCarritoDOM(producto);
   });
+
+    
+    function mostrarMensajeCompraRealizada() {
+      Swal.fire({
+        title: '¡Compra realizada!',
+        text: '¡Muchas gracias por tu compra!',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }).then(() => {
+        
+        vaciarCarrito();
+      });
+    }
+  
+    
+    document.getElementById("finalizarCompraBtn").addEventListener("click", function () {
+      mostrarMensajeCompraRealizada();
+    });
 
   inicializarCarrito();
 });
